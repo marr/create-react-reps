@@ -1,0 +1,61 @@
+{
+  "name": "@dmarr/create-react-reps",
+  "version": "0.1.3",
+  "description": "Generate the Flexoki-themed React Reps starter with Vite+.",
+  "keywords": [
+    "react",
+    "starter",
+    "vite-plus",
+    "vite-plus-generator"
+  ],
+  "homepage": "https://marr.github.io/create-react-reps/",
+  "bugs": {
+    "url": "https://github.com/marr/create-react-reps/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marr/create-react-reps.git"
+  },
+  "bin": {
+    "create-react-reps": "./dist/index.mjs"
+  },
+  "files": [
+    "dist",
+    "template",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "prepublishOnly": "pnpm run build",
+    "test": "vp test",
+    "dev": "node bin/index.ts",
+    "dev:template": "pnpm --dir template dev --host 127.0.0.1 --port 5183",
+    "dev:template:pages": "env VITE_BASE=/create-react-reps/ pnpm --dir template dev --host 127.0.0.1 --port 5184",
+    "test:template": "pnpm --dir template test",
+    "verify:template-standalone": "pnpm --dir template install --ignore-workspace && env VITE_BASE=/create-react-reps/ pnpm --dir template run build"
+  },
+  "dependencies": {
+    "bingo": "^0.9.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "26.4.0",
+    "tsdown": "0.23.0",
+    "typescript": "7.0.2"
+  },
+  "tsdown": {
+    "entry": "bin/index.ts",
+    "format": "esm",
+    "platform": "node",
+    "target": "node22.18.0"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "packageManager": "pnpm@11.24.0"
+}
