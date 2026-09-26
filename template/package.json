@@ -1,0 +1,45 @@
+{
+  "name": "react-reps",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "tsc -b && vp build",
+    "lint": "vp lint",
+    "preview": "vp preview",
+    "test": "vp test",
+    "prepare": "vp config"
+  },
+  "dependencies": {
+    "@base-ui/react": "catalog:",
+    "@fontsource-variable/inter": "catalog:",
+    "@tailwindcss/vite": "catalog:",
+    "class-variance-authority": "catalog:",
+    "cn": "^0.4.0",
+    "cube-motion": "^0.1.0",
+    "lucide-react": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-router": "^8.4.0",
+    "shadcn": "catalog:",
+    "tailwindcss": "catalog:",
+    "tw-animate-css": "catalog:"
+  },
+  "devDependencies": {
+    "@shadcn/lint": "^0.2.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "happy-dom": "^20.14.5",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

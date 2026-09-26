@@ -1,0 +1,57 @@
+# npm trusted publishing (OIDC) — runs on GitHub-hosted runners only.
+# Configure on npmjs.com: package @dmarr/create-react-reps → Trusted publishing →
+# GitHub Actions → org/user marr, repo create-react-reps, workflow publish.yml
+#
+name: Publish
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      # No registry-url — setup-node would inject GITHUB_TOKEN as NODE_AUTH_TOKEN and block npm OIDC.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Verify tag matches package version
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          EXPECTED="${TAG#v}"
+          ACTUAL="$(node -p "require('./package.json').version")"
+          if [ "${EXPECTED}" != "${ACTUAL}" ]; then
+            echo "Tag ${TAG} implies version ${EXPECTED}, but package.json has ${ACTUAL}"
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build generator
+        run: pnpm run build
+
+      - name: Test generator CLI
+        run: node dist/index.mjs --help
+
+      - name: Publish to npm (trusted publishing)
+        run: npm publish --access public
