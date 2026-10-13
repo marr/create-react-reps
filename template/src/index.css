@@ -1,0 +1,409 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --flexoki-bg: 48 100% 97.0588%;
+  --flexoki-bg-2: 50.7692 33.3333% 92.3529%;
+  --flexoki-ui: 50.7692 20.6349% 87.6471%;
+  --flexoki-ui-2: 50 13.9535% 83.1373%;
+  --flexoki-ui-3: 54.5455 10.0917% 78.6275%;
+  --flexoki-tx: 0 3.2258% 6.0784%;
+  --flexoki-tx-2: 50 2.7778% 42.3529%;
+  --flexoki-tx-3: 49.0909 7.0968% 69.6078%;
+  --flexoki-re: var(--color-flexoki-red-600);
+  --flexoki-or: var(--color-flexoki-orange-600);
+  --flexoki-ye: var(--color-flexoki-yellow-600);
+  --flexoki-gr: var(--color-flexoki-green-600);
+  --flexoki-cy: var(--color-flexoki-cyan-600);
+  --flexoki-bl: var(--color-flexoki-blue-600);
+  --flexoki-pu: var(--color-flexoki-purple-600);
+  --flexoki-ma: var(--color-flexoki-magenta-600);
+  --flexoki-accent: var(--flexoki-re);
+  --accent-strong: var(--flexoki-accent);
+  --success: 73.3333 84.1727% 27.2549%;
+  --success-foreground: 48 100% 97.0588%;
+
+  --text: hsl(var(--flexoki-tx-2));
+  --text-h: hsl(var(--flexoki-tx));
+  --bg: hsl(var(--flexoki-bg));
+  --border: hsl(var(--flexoki-ui-2));
+  --code-bg: hsl(var(--flexoki-bg-2));
+  --accent: color-mix(in oklab, var(--flexoki-accent) 12%, var(--background));
+  --accent-bg: color-mix(in oklab, var(--flexoki-accent) 12%, transparent);
+  --accent-border: color-mix(in oklab, var(--flexoki-accent) 50%, transparent);
+  --social-bg: hsl(var(--flexoki-ui) / 0.5);
+  --shadow:
+    hsl(var(--flexoki-tx) / 0.1) 0 10px 15px -3px, hsl(var(--flexoki-tx) / 0.05) 0 4px 6px -2px;
+
+  color-scheme: light;
+
+  --background: hsl(var(--flexoki-bg));
+  --foreground: hsl(var(--flexoki-tx));
+  --card: hsl(var(--flexoki-bg));
+  --card-foreground: hsl(var(--flexoki-tx));
+  --popover: hsl(var(--flexoki-bg));
+  --popover-foreground: hsl(var(--flexoki-tx));
+  --primary: hsl(var(--flexoki-tx));
+  --primary-foreground: hsl(var(--flexoki-bg));
+  --secondary: hsl(var(--flexoki-ui-2));
+  --secondary-foreground: hsl(var(--flexoki-tx-2));
+  --muted: hsl(var(--flexoki-bg-2));
+  --muted-foreground: hsl(var(--flexoki-tx-2));
+  --accent-foreground: hsl(var(--flexoki-tx-2));
+  --destructive: var(--flexoki-re);
+  --input: hsl(var(--flexoki-ui-2));
+  --ring: var(--accent-strong);
+  --chart-1: var(--flexoki-accent);
+  --chart-2: hsl(var(--flexoki-tx-2));
+  --chart-3: hsl(var(--flexoki-ui-3));
+  --chart-4: hsl(var(--flexoki-ui-2));
+  --chart-5: hsl(var(--flexoki-tx));
+  --radius: 0.5rem;
+  --sidebar: hsl(var(--flexoki-bg));
+  --sidebar-foreground: hsl(var(--flexoki-tx));
+  --sidebar-primary: hsl(var(--flexoki-tx));
+  --sidebar-primary-foreground: hsl(var(--flexoki-bg));
+  --sidebar-accent: hsl(var(--flexoki-ui));
+  --sidebar-accent-foreground: hsl(var(--flexoki-tx-2));
+  --sidebar-border: hsl(var(--flexoki-ui-2));
+  --sidebar-ring: hsl(var(--flexoki-ui-3));
+}
+
+.dark {
+  color-scheme: dark;
+  --flexoki-bg: 0 3.2258% 6.0784%;
+  --flexoki-bg-2: 30 3.7037% 10.5882%;
+  --flexoki-ui: 30 2.5641% 15.2941%;
+  --flexoki-ui-2: 40 2.9703% 19.8039%;
+  --flexoki-ui-3: 30 3.2258% 24.3137%;
+  --flexoki-tx: 54.5455 10.0917% 78.6275%;
+  --flexoki-tx-2: 42.8571 2.834% 51.5686%;
+  --flexoki-tx-3: 45 2.3529% 33.3333%;
+  --flexoki-re: var(--color-flexoki-red-400);
+  --flexoki-or: var(--color-flexoki-orange-400);
+  --flexoki-ye: var(--color-flexoki-yellow-400);
+  --flexoki-gr: var(--color-flexoki-green-400);
+  --flexoki-cy: var(--color-flexoki-cyan-400);
+  --flexoki-bl: var(--color-flexoki-blue-400);
+  --flexoki-pu: var(--color-flexoki-purple-400);
+  --flexoki-ma: var(--color-flexoki-magenta-400);
+  --success: 71.7526 45.9716% 41.3725%;
+  --success-foreground: 0 3.2258% 6.0784%;
+
+  --text: hsl(var(--flexoki-tx));
+  --text-h: hsl(var(--flexoki-tx));
+  --bg: hsl(var(--flexoki-bg));
+  --border: hsl(var(--flexoki-ui-2));
+  --code-bg: hsl(var(--flexoki-bg-2));
+  --accent: color-mix(in oklab, var(--flexoki-accent) 15%, var(--background));
+  --accent-bg: color-mix(in oklab, var(--flexoki-accent) 15%, transparent);
+  --accent-border: color-mix(in oklab, var(--flexoki-accent) 50%, transparent);
+  --social-bg: hsl(var(--flexoki-ui) / 0.5);
+  --shadow: hsl(0 0% 0% / 0.4) 0 10px 15px -3px, hsl(0 0% 0% / 0.25) 0 4px 6px -2px;
+
+  --background: hsl(var(--flexoki-bg));
+  --foreground: hsl(var(--flexoki-tx));
+  --card: hsl(var(--flexoki-bg));
+  --card-foreground: hsl(var(--flexoki-tx));
+  --popover: hsl(var(--flexoki-bg));
+  --popover-foreground: hsl(var(--flexoki-tx));
+  --primary: hsl(var(--flexoki-tx));
+  --primary-foreground: hsl(var(--flexoki-bg));
+  --secondary: hsl(var(--flexoki-ui-2));
+  --secondary-foreground: hsl(var(--flexoki-tx));
+  --muted: hsl(var(--flexoki-bg-2));
+  --muted-foreground: hsl(var(--flexoki-tx-2));
+  --accent-foreground: hsl(var(--flexoki-tx));
+  --destructive: var(--flexoki-re);
+  --input: hsl(var(--flexoki-ui-2));
+  --ring: var(--accent-strong);
+  --chart-1: var(--flexoki-accent);
+  --chart-2: hsl(var(--flexoki-tx));
+  --chart-3: hsl(var(--flexoki-ui-3));
+  --chart-4: hsl(var(--flexoki-ui-2));
+  --chart-5: hsl(var(--flexoki-bg-2));
+  --sidebar: hsl(var(--flexoki-bg-2));
+  --sidebar-foreground: hsl(var(--flexoki-tx));
+  --sidebar-primary: hsl(var(--flexoki-tx));
+  --sidebar-primary-foreground: hsl(var(--flexoki-bg));
+  --sidebar-accent: hsl(var(--flexoki-ui));
+  --sidebar-accent-foreground: hsl(var(--flexoki-tx));
+  --sidebar-border: hsl(var(--flexoki-ui-2));
+  --sidebar-ring: hsl(var(--flexoki-ui-3));
+}
+
+:root[data-accent="orange"] {
+  --flexoki-accent: var(--flexoki-or);
+}
+
+:root[data-accent="yellow"] {
+  --flexoki-accent: var(--flexoki-ye);
+}
+
+:root[data-accent="green"] {
+  --flexoki-accent: var(--flexoki-gr);
+}
+
+:root[data-accent="cyan"] {
+  --flexoki-accent: var(--flexoki-cy);
+}
+
+:root[data-accent="blue"] {
+  --flexoki-accent: var(--flexoki-bl);
+}
+
+:root[data-accent="purple"] {
+  --flexoki-accent: var(--flexoki-pu);
+}
+
+:root[data-accent="magenta"] {
+  --flexoki-accent: var(--flexoki-ma);
+}
+
+@theme inline {
+  --color-flexoki-bg: hsl(var(--flexoki-bg));
+  --color-flexoki-bg-2: hsl(var(--flexoki-bg-2));
+  --color-flexoki-ui: hsl(var(--flexoki-ui));
+  --color-flexoki-ui-2: hsl(var(--flexoki-ui-2));
+  --color-flexoki-ui-3: hsl(var(--flexoki-ui-3));
+  --color-flexoki-tx: hsl(var(--flexoki-tx));
+  --color-flexoki-tx-2: hsl(var(--flexoki-tx-2));
+  --color-flexoki-tx-3: hsl(var(--flexoki-tx-3));
+  --color-flexoki-re: var(--flexoki-re);
+  --color-flexoki-or: var(--flexoki-or);
+  --color-flexoki-ye: var(--flexoki-ye);
+  --color-flexoki-gr: var(--flexoki-gr);
+  --color-flexoki-cy: var(--flexoki-cy);
+  --color-flexoki-bl: var(--flexoki-bl);
+  --color-flexoki-pu: var(--flexoki-pu);
+  --color-flexoki-ma: var(--flexoki-ma);
+  --color-accent-strong: var(--accent-strong);
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --font-heading: var(--font-sans);
+  --font-sans: "Inter Variable", sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@theme static {
+  --color-flexoki-paper: #fffcf0;
+  --color-flexoki-black: #100f0f;
+  --color-flexoki-base-50: #f2f0e5;
+  --color-flexoki-base-100: #e6e4d9;
+  --color-flexoki-base-150: #dad8ce;
+  --color-flexoki-base-200: #cecdc3;
+  --color-flexoki-base-300: #b7b5ac;
+  --color-flexoki-base-400: #9f9d96;
+  --color-flexoki-base-500: #878580;
+  --color-flexoki-base-600: #6f6e69;
+  --color-flexoki-base-700: #575653;
+  --color-flexoki-base-800: #403e3c;
+  --color-flexoki-base-850: #343331;
+  --color-flexoki-base-900: #282726;
+  --color-flexoki-base-950: #1c1b1a;
+
+  --color-flexoki-red-50: #ffe1d5;
+  --color-flexoki-red-100: #ffcabb;
+  --color-flexoki-red-150: #fdb2a2;
+  --color-flexoki-red-200: #f89a8a;
+  --color-flexoki-red-300: #e8705f;
+  --color-flexoki-red-400: #d14d41;
+  --color-flexoki-red-500: #c03e35;
+  --color-flexoki-red-600: #af3029;
+  --color-flexoki-red-700: #942822;
+  --color-flexoki-red-800: #6c201c;
+  --color-flexoki-red-850: #551b18;
+  --color-flexoki-red-900: #3e1715;
+  --color-flexoki-red-950: #261312;
+
+  --color-flexoki-orange-50: #ffe7ce;
+  --color-flexoki-orange-100: #fed3af;
+  --color-flexoki-orange-150: #fcc192;
+  --color-flexoki-orange-200: #f9ae77;
+  --color-flexoki-orange-300: #ec8b49;
+  --color-flexoki-orange-400: #da702c;
+  --color-flexoki-orange-500: #cb6120;
+  --color-flexoki-orange-600: #bc5215;
+  --color-flexoki-orange-700: #9d4310;
+  --color-flexoki-orange-800: #71320d;
+  --color-flexoki-orange-850: #59290d;
+  --color-flexoki-orange-900: #40200d;
+  --color-flexoki-orange-950: #27180e;
+
+  --color-flexoki-yellow-50: #faeec6;
+  --color-flexoki-yellow-100: #f6e2a0;
+  --color-flexoki-yellow-150: #f1d67e;
+  --color-flexoki-yellow-200: #eccb60;
+  --color-flexoki-yellow-300: #dfb431;
+  --color-flexoki-yellow-400: #d0a215;
+  --color-flexoki-yellow-500: #be9207;
+  --color-flexoki-yellow-600: #ad8301;
+  --color-flexoki-yellow-700: #8e6b01;
+  --color-flexoki-yellow-800: #664d01;
+  --color-flexoki-yellow-850: #503d02;
+  --color-flexoki-yellow-900: #3a2d04;
+  --color-flexoki-yellow-950: #241e08;
+
+  --color-flexoki-green-50: #edeecf;
+  --color-flexoki-green-100: #dde2b2;
+  --color-flexoki-green-150: #cdd597;
+  --color-flexoki-green-200: #bec97e;
+  --color-flexoki-green-300: #a0af54;
+  --color-flexoki-green-400: #879a39;
+  --color-flexoki-green-500: #768d21;
+  --color-flexoki-green-600: #66800b;
+  --color-flexoki-green-700: #536907;
+  --color-flexoki-green-800: #3d4c07;
+  --color-flexoki-green-850: #313d07;
+  --color-flexoki-green-900: #252d09;
+  --color-flexoki-green-950: #1a1e0c;
+
+  --color-flexoki-cyan-50: #ddf1e4;
+  --color-flexoki-cyan-100: #bfe8d9;
+  --color-flexoki-cyan-150: #a2dece;
+  --color-flexoki-cyan-200: #87d3c3;
+  --color-flexoki-cyan-300: #5abdac;
+  --color-flexoki-cyan-400: #3aa99f;
+  --color-flexoki-cyan-500: #2f968d;
+  --color-flexoki-cyan-600: #24837b;
+  --color-flexoki-cyan-700: #1c6c66;
+  --color-flexoki-cyan-800: #164f4a;
+  --color-flexoki-cyan-850: #143f3c;
+  --color-flexoki-cyan-900: #122f2c;
+  --color-flexoki-cyan-950: #101f1d;
+
+  --color-flexoki-blue-50: #e1eceb;
+  --color-flexoki-blue-100: #c6dde8;
+  --color-flexoki-blue-150: #abcfe2;
+  --color-flexoki-blue-200: #92bfdb;
+  --color-flexoki-blue-300: #66a0c8;
+  --color-flexoki-blue-400: #4385be;
+  --color-flexoki-blue-500: #3171b2;
+  --color-flexoki-blue-600: #205ea6;
+  --color-flexoki-blue-700: #1a4f8c;
+  --color-flexoki-blue-800: #163b66;
+  --color-flexoki-blue-850: #133051;
+  --color-flexoki-blue-900: #12253b;
+  --color-flexoki-blue-950: #101a24;
+
+  --color-flexoki-purple-50: #f0eaec;
+  --color-flexoki-purple-100: #e2d9e9;
+  --color-flexoki-purple-150: #d3cae6;
+  --color-flexoki-purple-200: #c4b9e0;
+  --color-flexoki-purple-300: #a699d0;
+  --color-flexoki-purple-400: #8b7ec8;
+  --color-flexoki-purple-500: #735eb5;
+  --color-flexoki-purple-600: #5e409d;
+  --color-flexoki-purple-700: #4f3685;
+  --color-flexoki-purple-800: #3c2a62;
+  --color-flexoki-purple-850: #31234e;
+  --color-flexoki-purple-900: #261c39;
+  --color-flexoki-purple-950: #1a1623;
+
+  --color-flexoki-magenta-50: #fee4e5;
+  --color-flexoki-magenta-100: #fccfda;
+  --color-flexoki-magenta-150: #f9b9cf;
+  --color-flexoki-magenta-200: #f4a4c2;
+  --color-flexoki-magenta-300: #e47da8;
+  --color-flexoki-magenta-400: #ce5d97;
+  --color-flexoki-magenta-500: #b74583;
+  --color-flexoki-magenta-600: #a02f6f;
+  --color-flexoki-magenta-700: #87285e;
+  --color-flexoki-magenta-800: #641f46;
+  --color-flexoki-magenta-850: #4f1b39;
+  --color-flexoki-magenta-900: #39172b;
+  --color-flexoki-magenta-950: #24131d;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background font-sans text-foreground;
+    margin: 0;
+  }
+}
+
+@layer components {
+  .palette-bubble {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: var(--bubble-color);
+    background-image:
+      radial-gradient(
+        ellipse 48% 34% at 28% 22%,
+        color-mix(in srgb, var(--bubble-color) 38%, white) 0%,
+        color-mix(in srgb, var(--bubble-color) 68%, white) 34%,
+        transparent 100%
+      ),
+      linear-gradient(
+        150deg,
+        color-mix(in srgb, var(--bubble-color) 72%, white) 0%,
+        transparent 46%,
+        color-mix(in srgb, var(--bubble-color) 62%, black) 100%
+      );
+    box-shadow:
+      inset 0 1px 1px color-mix(in srgb, var(--bubble-color) 65%, white),
+      inset 0 -6px 10px color-mix(in srgb, var(--bubble-color) 68%, black),
+      0 4px 9px rgb(16 15 15 / 0.16);
+  }
+
+  .palette-bubble::after {
+    position: absolute;
+    top: 13%;
+    left: 22%;
+    width: 34%;
+    height: 14%;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--bubble-color) 42%, white);
+    content: "";
+    filter: blur(1.5px);
+    opacity: 0.82;
+    pointer-events: none;
+    transform: rotate(-28deg);
+  }
+}
